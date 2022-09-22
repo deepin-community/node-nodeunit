@@ -1,0 +1,42 @@
+Source: node-nodeunit
+Section: javascript
+Priority: optional
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+Build-Depends: debhelper-compat (= 13)
+ , dh-sequence-nodejs
+ , node-async <!nocheck>
+ , node-ejs <!nocheck>
+ , node-should <!nocheck>
+ , node-tap <!nocheck>
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-nodeunit
+Vcs-Git: https://salsa.debian.org/js-team/node-nodeunit.git
+Homepage: https://github.com/caolan/nodeunit
+Testsuite: autopkgtest-pkg-nodejs
+Rules-Requires-Root: no
+
+Package: nodeunit
+Architecture: all
+Depends: ${misc:Depends}
+ , node-async
+ , node-ejs
+ , node-tap
+ , nodejs
+Provides: node-nodeunit (= ${source:Version})
+Description: Unit test framework for Node.js and the browser
+ This package provides easy async unit testing
+ for Node.js and the browser.
+ .
+ Particularly, this module:
+  * Is simple to use,
+  * Just exports the tests from a module,
+  * Works with node.js and in the browser,
+  * Helps you avoid common pitfalls when testing asynchronous code,
+  * Allows one to easily add test cases with setUp and tearDown
+    functions,
+  * Adds flexible reporters for custom output, built-in support
+    for HTML & jUnit XML,
+  * Allows one to use mocks and stubs.
+ .
+ Node.js is an event-based server-side JavaScript engine.

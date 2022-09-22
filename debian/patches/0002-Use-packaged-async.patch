@@ -1,0 +1,93 @@
+From 218b62f0dabebfa408d3fecfd35b11b8a324fe29 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bastien=20ROUCARI=C3=88S?= <roucaries.bastien@gmail.com>
+Date: Thu, 7 Jun 2018 10:45:55 +0200
+Subject: Use packaged async
+
+Forwarded: not-needed
+---
+ Makefile               | 2 +-
+ lib/core.js            | 2 +-
+ lib/nodeunit.js        | 2 +-
+ lib/reporters/junit.js | 2 +-
+ lib/types.js           | 2 +-
+ lib/utils.js           | 2 +-
+ test/test-base.js      | 2 +-
+ 7 files changed, 7 insertions(+), 7 deletions(-)
+
+--- a/Makefile
++++ b/Makefile
+@@ -141,7 +141,7 @@
+ stamp-build: $(wildcard  deps/* lib/*.js)
+ 	touch $@;
+ 	mkdir -p $(BUILDDIR)/nodeunit
+-	cp -R bin deps index.js lib package.json share $(BUILDDIR)/nodeunit
++	cp -R bin index.js lib package.json share $(BUILDDIR)/nodeunit
+ 	printf '#!/bin/sh\n$(NODEJS) $(NODEJSLIBDIR)/$(PACKAGE)/bin/nodeunit $$@' > $(BUILDDIR)/nodeunit.sh
+ 
+ test:
+--- a/lib/core.js
++++ b/lib/core.js
+@@ -13,7 +13,7 @@
+  * Module dependencies
+  */
+ 
+-var async    = require('../deps/async'), //@REMOVE_LINE_FOR_BROWSER
++var async    = require('async'), //@REMOVE_LINE_FOR_BROWSER
+     nodeunit = require('./nodeunit'),    //@REMOVE_LINE_FOR_BROWSER
+     types    = require('./types');       //@REMOVE_LINE_FOR_BROWSER
+ 
+--- a/lib/nodeunit.js
++++ b/lib/nodeunit.js
+@@ -8,7 +8,7 @@
+  * Module dependencies
+  */
+ 
+-var async = require('../deps/async'),
++var async = require('async'),
+     types = require('./types'),
+     utils = require('./utils'),
+     core = require('./core'),
+--- a/lib/reporters/junit.js
++++ b/lib/reporters/junit.js
+@@ -12,7 +12,7 @@
+     utils = require('../utils'),
+     fs = require('fs'),
+     path = require('path'),
+-    async = require('../../deps/async'),
++    async = require('async'),
+     AssertionError = require('../assert').AssertionError,
+     child_process = require('child_process'),
+     ejs = require('ejs');
+--- a/lib/types.js
++++ b/lib/types.js
+@@ -14,7 +14,7 @@
+  */
+ 
+ var assert = require('./assert'),     //@REMOVE_LINE_FOR_BROWSER
+-    async = require('../deps/async'); //@REMOVE_LINE_FOR_BROWSER
++    async = require('async'); //@REMOVE_LINE_FOR_BROWSER
+ 
+ 
+ /**
+--- a/lib/utils.js
++++ b/lib/utils.js
+@@ -8,7 +8,7 @@
+  * Module dependencies
+  */
+ 
+-var async = require('../deps/async'),
++var async = require('async'),
+     fs = require('fs'),
+     util = require('util'),
+     Script = require('vm').Script,
+--- a/test/test-base.js
++++ b/test/test-base.js
+@@ -10,7 +10,7 @@
+  */
+ 
+ var assert = require('assert'),             // @REMOVE_LINE_FOR_BROWSER
+-    async = require('../deps/async'),       // @REMOVE_LINE_FOR_BROWSER
++    async = require('async'),       // @REMOVE_LINE_FOR_BROWSER
+     nodeunit = require('../lib/nodeunit');  // @REMOVE_LINE_FOR_BROWSER
+ 
+ 

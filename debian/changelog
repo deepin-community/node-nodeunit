@@ -1,0 +1,63 @@
+node-nodeunit (0.11.3+ds-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster:
+    + Build-Depends: Drop versioned constraint on node-ejs and node-tap.
+    + nodeunit: Drop versioned constraint on node-ejs, node-tap and nodejs in
+      Depends.
+
+  [ Yadd ]
+  * Update standards version to 4.6.0, no changes needed.
+  * Fix filenamemangle
+
+ -- Yadd <yadd@debian.org>  Mon, 08 Nov 2021 12:43:05 +0100
+
+node-nodeunit (0.11.3+ds-1) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+  [ Xavier Guimard ]
+  * Bump debhelper compatibility level to 13
+  * Declare compliance with policy 4.5.0
+  * Add "Rules-Requires-Root: no"
+  * Add debian/gbp.conf
+  * Use dh-sequence-nodejs auto test & install
+  * New upstream version 0.11.3+ds3
+  * Modernize debian/watch
+  * New upstream version 0.11.3+ds
+  * Refresh patches
+  * Install CONTRIBUTING.md
+
+ -- Xavier Guimard <yadd@debian.org>  Sat, 31 Oct 2020 20:25:25 +0100
+
+node-nodeunit (0.11.2+ds3-2) unstable; urgency=medium
+
+  * Team upload
+  * Add node-async as depends
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 07 Jun 2018 14:47:40 +0200
+
+node-nodeunit (0.11.2+ds3-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream version
+  * Repack and use packaged version of async and assert
+  * Use github homepage
+  * Use git dpm for patching
+  * Move to salsa
+
+ -- Bastien Roucariès <rouca@debian.org>  Thu, 07 Jun 2018 10:26:48 +0200
+
+node-nodeunit (0.10.2-1) unstable; urgency=low
+
+  * Initial release (Closes: #844307)
+
+ -- Pirate Praveen <praveen@debian.org>  Mon, 14 Nov 2016 16:39:47 +0530

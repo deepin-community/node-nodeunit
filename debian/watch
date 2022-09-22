@@ -1,0 +1,6 @@
+version=4
+opts=\
+dversionmangle=auto,\
+repacksuffix=+ds,\
+filenamemangle=s/.?(@ANY_VERSION@@ARCHIVE_EXT@)/nodeunit-$1/ \
+  https://github.com/caolan/nodeunit/tags .*/v?(\d\S+)\.tar\.gz

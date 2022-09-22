@@ -1,0 +1,32 @@
+From d490c330ce66323cb1494ef0d6fbbae82e6e3de7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bastien=20ROUCARI=C3=88S?= <roucaries.bastien@gmail.com>
+Date: Thu, 7 Jun 2018 12:15:38 +0200
+Subject: Prepare browserify
+
+Forwarded: not-needed
+---
+ browser.js               | 7 +++++++
+ lib/reporters/browser.js | 1 +
+ 2 files changed, 8 insertions(+)
+ create mode 100644 browser.js
+
+--- /dev/null
++++ b/browser.js
+@@ -0,0 +1,7 @@
++var nodeunit = {};
++
++nodeunit.core = require('./lib/nodeunit.js');
++nodeunit.assert = require('./lib/assert.js');
++nodeunit.reporter = require('./lib/reporters/browser.js');
++nodeunit.run = new function (modules, options, callback) { return nodeunit.reporter.run;};
++module.exports = nodeunit;
+--- a/lib/reporters/browser.js
++++ b/lib/reporters/browser.js
+@@ -64,6 +64,7 @@
+ 
+     setText(userAgent, navigator.userAgent);
+ 
++    nodeunit = require('../../index.js');
+     nodeunit.runModules(modules, {
+         moduleStart: function (name) {
+             /*var mheading = document.createElement('h2');

@@ -1,0 +1,38 @@
+From 3dff6dba090d88903eecf13e70da9dbc10d5038c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bastien=20ROUCARI=C3=88S?= <roucaries.bastien@gmail.com>
+Date: Thu, 7 Jun 2018 10:45:34 +0200
+Subject: remove-node-modules
+
+---
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+--- a/Makefile
++++ b/Makefile
+@@ -1,7 +1,7 @@
+ PACKAGE = nodeunit
+ NODEJS = $(if $(shell test -f /usr/bin/nodejs && echo "true"),nodejs,node)
+ 
+-PREFIX ?= /usr/local
++PREFIX ?= $(DESTDIR)/usr
+ BINDIR ?= $(PREFIX)/bin
+ DATADIR ?= $(PREFIX)/share
+ MANDIR ?= $(PREFIX)/share/man
+@@ -58,7 +58,7 @@
+ 	# copy nodeunit.css
+ 	cp share/nodeunit.css $(BUILDDIR)/browser/nodeunit.css
+ 	# create nodeunit.min.js
+-	node_modules/uglify-js/bin/uglifyjs $(BUILDDIR)/browser/nodeunit.js > $(BUILDDIR)/browser/nodeunit.min.js
++	/usr/bin/uglifyjs $(BUILDDIR)/browser/nodeunit.js > $(BUILDDIR)/browser/nodeunit.min.js
+ 	# create test scripts
+ 	mkdir -p $(BUILDDIR)/browser/test
+ 	cp test/test.html $(BUILDDIR)/browser/test/test.html
+@@ -141,7 +141,7 @@
+ stamp-build: $(wildcard  deps/* lib/*.js)
+ 	touch $@;
+ 	mkdir -p $(BUILDDIR)/nodeunit
+-	cp -R bin node_modules deps index.js lib package.json share $(BUILDDIR)/nodeunit
++	cp -R bin deps index.js lib package.json share $(BUILDDIR)/nodeunit
+ 	printf '#!/bin/sh\n$(NODEJS) $(NODEJSLIBDIR)/$(PACKAGE)/bin/nodeunit $$@' > $(BUILDDIR)/nodeunit.sh
+ 
+ test:

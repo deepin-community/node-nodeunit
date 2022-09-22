@@ -1,0 +1,27 @@
+From 327626ab1bda98ebc547f304a64c34637c027abc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Bastien=20ROUCARI=C3=88S?= <roucaries.bastien@gmail.com>
+Date: Thu, 7 Jun 2018 11:31:26 +0200
+Subject: json2 is not needed in modern browser
+
+---
+ Makefile | 2 --
+ 1 file changed, 2 deletions(-)
+
+--- a/Makefile
++++ b/Makefile
+@@ -27,7 +27,6 @@
+ 	# build browser version of nodeunit.js
+ 	cat share/license.js >> $(BUILDDIR)/browser/nodeunit.js
+ 	echo "nodeunit = (function(){" >> $(BUILDDIR)/browser/nodeunit.js
+-	cat deps/json2.js >> $(BUILDDIR)/browser/nodeunit.js
+ 	# make assert global
+ 	echo "var assert = this.assert = {};" >> $(BUILDDIR)/browser/nodeunit.js
+ 	echo "var types = {};" >> $(BUILDDIR)/browser/nodeunit.js
+@@ -108,7 +107,6 @@
+ 	mkdir -p $(BUILDDIR)/commonjs
+ 	rm -rf $(BUILDDIR)/commonjs/*
+ 	mkdir -p $(BUILDDIR)/commonjs/deps
+-	cp deps/json2.js $(BUILDDIR)/commonjs/deps
+ 	cp deps/async.js $(BUILDDIR)/commonjs/deps
+ 	echo "var async = require('async');" >> $(BUILDDIR)/commonjs/nodeunit.js
+ 	echo "var assert = {};" >> $(BUILDDIR)/commonjs/nodeunit.js

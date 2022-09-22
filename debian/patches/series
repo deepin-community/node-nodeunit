@@ -1,0 +1,4 @@
+0001-remove-node-modules.patch
+0002-Use-packaged-async.patch
+0003-json2-is-not-needed-in-modern-browser.patch
+0004-Prepare-browserify.patch
