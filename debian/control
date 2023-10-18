@@ -9,7 +9,7 @@ Build-Depends: debhelper-compat (= 13)
  , node-ejs <!nocheck>
  , node-should <!nocheck>
  , node-tap <!nocheck>
-Standards-Version: 4.6.0
+Standards-Version: 4.6.1
 Vcs-Browser: https://salsa.debian.org/js-team/node-nodeunit
 Vcs-Git: https://salsa.debian.org/js-team/node-nodeunit.git
 Homepage: https://github.com/caolan/nodeunit

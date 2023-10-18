@@ -1,0 +1,16 @@
+Description: replace deprecated __proto__ call
+Author: Yadd <yadd@debian.org>
+Forwarded: no
+Last-Update: 2022-09-14
+
+--- a/lib/assert.js
++++ b/lib/assert.js
+@@ -96,7 +96,7 @@
+ 
+ // assert.AssertionError instanceof Error
+ 
+-assert.AssertionError.__proto__ = Error.prototype;
++Object.setPrototypeOf(assert.AssertionError, Error.prototype);
+ 
+ // At present only the three keys mentioned above are used and
+ // understood by the spec. Implementations or sub modules can pass
