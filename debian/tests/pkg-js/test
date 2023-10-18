@@ -1,1 +1,1 @@
-nodejs ./bin/nodeunit
+PORT=`perl -le 'print 40001 + int(rand(20000))'` nodejs ./bin/nodeunit

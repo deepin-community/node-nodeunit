@@ -1,3 +1,18 @@
+node-nodeunit (0.11.3+ds-4) unstable; urgency=medium
+
+  * Team upload
+  * Update standards version to 4.6.1, no changes needed.
+  * Randomize test port
+
+ -- Yadd <yadd@debian.org>  Fri, 25 Nov 2022 13:46:27 +0100
+
+node-nodeunit (0.11.3+ds-3) unstable; urgency=medium
+
+  * Team upload
+  * Drop __proto__ call
+
+ -- Yadd <yadd@debian.org>  Wed, 14 Sep 2022 11:45:06 +0200
+
 node-nodeunit (0.11.3+ds-2) unstable; urgency=medium
 
   * Team upload
